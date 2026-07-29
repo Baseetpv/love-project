@@ -1,0 +1,572 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Vazirmatn',sans-serif;
+}
+
+body{
+
+    overflow:hidden;
+
+    width:100vw;
+
+    height:100vh;
+
+    background:#020617;
+
+    color:white;
+
+}
+
+/* صفحات */
+
+.page{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:1s;
+
+}
+
+.page.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/* کارت شیشه‌ای */
+
+.box{
+
+    width:90%;
+
+    max-width:700px;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    text-align:center;
+
+    box-shadow:
+
+    0 0 40px rgba(0,255,255,.15);
+
+}
+
+/* تیتر */
+
+h1{
+
+    font-size:70px;
+
+    margin-bottom:20px;
+
+}
+
+h2{
+
+    margin-bottom:20px;
+
+    font-size:34px;
+
+}
+
+/* متن */
+
+p{
+
+    line-height:2.2;
+
+    font-size:22px;
+
+}
+
+/* دکمه */
+
+button{
+
+    margin-top:35px;
+
+    border:none;
+
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    color:white;
+
+    background:linear-gradient(
+    45deg,
+    #ff4d6d,
+    #ff758f
+    );
+
+    transition:.4s;
+
+}
+
+button:hover{
+
+    transform:scale(1.08);
+
+}
+
+/* قلب */
+
+.heart{
+
+    width:120px;
+
+    height:120px;
+
+    background:#ff3d68;
+
+    margin:auto;
+
+    margin-bottom:35px;
+
+    transform:rotate(-45deg);
+
+    animation:beat 1s infinite;
+
+}
+
+.heart::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    background:#ff3d68;
+
+    top:-60px;
+
+    left:0;
+
+}
+
+.heart::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    background:#ff3d68;
+
+    left:60px;
+
+    top:0;
+
+}
+
+@keyframes beat{
+
+0%{
+
+transform:rotate(-45deg) scale(1);
+
+}
+
+50%{
+
+transform:rotate(-45deg) scale(1.15);
+
+}
+
+100%{
+
+transform:rotate(-45deg) scale(1);
+
+}
+
+}
+
+/* شمارنده */
+
+#counter{
+
+    margin:30px;
+
+    font-size:28px;
+
+    line-height:2;
+
+    color:#8be9fd;
+
+}
+
+/* ========================= */
+/* آسمان پرستاره */
+/* ========================= */
+
+#stars{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-3;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+
+0%,100%{
+
+opacity:.2;
+transform:scale(1);
+
+}
+
+50%{
+
+opacity:1;
+transform:scale(1.8);
+
+}
+
+}
+
+/* ========================= */
+/* شهاب */
+/* ========================= */
+
+#shooting-stars{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:-2;
+
+}
+
+.shooting-star{
+
+position:absolute;
+
+width:150px;
+
+height:2px;
+
+background:linear-gradient(to right,white,transparent);
+
+transform:rotate(-35deg);
+
+animation:shoot 2s linear forwards;
+
+}
+
+@keyframes shoot{
+
+0%{
+
+opacity:0;
+transform:translate(0,0) rotate(-35deg);
+
+}
+
+10%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+transform:translate(-900px,900px) rotate(-35deg);
+
+}
+
+}
+
+/* ========================= */
+/* بارش قلب */
+/* ========================= */
+
+#hearts{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:999;
+
+}
+
+.floating-heart{
+
+position:absolute;
+
+font-size:20px;
+
+animation:fall 8s linear forwards;
+
+}
+
+@keyframes fall{
+
+0%{
+
+transform:translateY(-100px);
+
+opacity:0;
+
+}
+
+10%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(120vh);
+
+opacity:0;
+
+}
+
+}
+
+/* ========================= */
+/* متن تایپ */
+/* ========================= */
+
+#terminal{
+
+font-size:20px;
+
+color:#00ff99;
+
+text-align:left;
+
+direction:ltr;
+
+white-space:pre-wrap;
+
+line-height:2;
+
+min-height:230px;
+
+}
+
+/* ========================= */
+/* نامه عاشقانه */
+/* ========================= */
+
+#loveLetter{
+
+display:none;
+
+margin-top:35px;
+
+font-size:20px;
+
+line-height:2.2;
+
+animation:fadeIn 1.5s;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ========================= */
+/* موبایل */
+/* ========================= */
+
+@media(max-width:768px){
+
+.box{
+
+width:92%;
+
+padding:30px 20px;
+
+}
+
+h1{
+
+font-size:55px;
+
+}
+
+h2{
+
+font-size:26px;
+
+}
+
+p{
+
+font-size:18px;
+
+line-height:2;
+
+}
+
+button{
+
+font-size:17px;
+
+padding:14px 30px;
+
+}
+
+.heart{
+
+width:90px;
+height:90px;
+
+}
+
+.heart::before{
+
+width:90px;
+height:90px;
+top:-45px;
+
+}
+
+.heart::after{
+
+width:90px;
+height:90px;
+left:45px;
+
+}
+
+#counter{
+
+font-size:22px;
+
+}
+
+}
+
+/* ========================= */
+/* ورودی تاریخ */
+/* ========================= */
+
+#loveDate{
+
+    margin-top:25px;
+
+    width:80%;
+
+    max-width:350px;
+
+    padding:15px 20px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,.3);
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(10px);
+
+    color:white;
+
+    font-size:18px;
+
+    text-align:center;
+
+    outline:none;
+
+    transition:.4s;
+
+}
+
+
+#loveDate:focus{
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 25px rgba(255,100,150,.5);
+
+}
+
+
+/* ظاهر تقویم در موبایل */
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+
+    filter:invert(1);
+
+    cursor:pointer;
+
+}
